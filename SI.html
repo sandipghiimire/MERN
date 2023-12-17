@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest</title>
+</head>
+<body>
+    <script>
+        let principle = +prompt("Enter the principle :-" );
+        let time = +prompt("Enter the time :-" );
+        let rate = +prompt("Enter the rate :-" );
+
+        let si = (principle*time*rate)/100;
+        let amount = si + principle;
+        console.log(si);
+        document.write("The amount is " + amount + " when principle is " + principle +" ,time is " + time + " years in the rate of " + rate);
+        document.write(`The amount is ${amount} when principle is ${principle}, time is ${time} years and rate is ${rate}%`)
+    </script>
+</body>
+</html>
