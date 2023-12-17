@@ -1,18 +1,26 @@
-// Task 1: Store Mark's and John's mass and height in variables
-let markMass = 95; // Mark's mass in kg
-let markHeight = 1.88; // Mark's height in meters
+// let x=5;
+// let y=6;
 
-let johnMass = 85; // John's mass in kg
-let johnHeight = 1.76; // John's height in meters
+// let z=x+y;
+// let m=y-x;
 
-// Task 2: Calculate both their BMIs using the formula
-let markBMI = markMass / (markHeight ** 2);
-let johnBMI = johnMass / (johnHeight ** 2);
+// let a= z < m;
 
-// Task 3: Create a Boolean variable 'markHigherBMI'
+// console.log("addition is:", +z);
+// console.log("Boolen is:" + a);
+
+let markMass = 95;
+let markHeight = 1.88;
+
+let johnMass = 85;
+let johnHeight = 1.76;
+
+let markBMI = markMass / (markHeight*markHeight);
+let johnBMI = johnMass / (johnHeight*johnHeight);
+
 let markHigherBMI = markBMI > johnBMI;
 
-// Output the results
 console.log("Mark's BMI:", markBMI);
 console.log("John's BMI:", johnBMI);
 console.log("Is Mark's BMI higher than John's? " + markHigherBMI);
+
