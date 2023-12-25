@@ -36,7 +36,7 @@
 // }
 
 
-let totalMark = 500
+let totalMark = 1000
 let obtainMark = 900
 let percentage = (obtainMark/totalMark)*100
 
@@ -45,23 +45,23 @@ switch(true){
         console.log(`Incorrect Marks Entry`)
         break
     case percentage>=90 && percentage<=100:
-        console.log(`A+`)
+        console.log(`You have obtained A+`)
         break
     case percentage>=80 && percentage<=89:
-        console.log(`A`)
+        console.log(`You have obtained A`)
         break
     case percentage>=70 && percentage<=79:
-        console.log(`B+`)
+        console.log(`You have obtained B+`)
         break
     case percentage>=60 && percentage<=69:
-        console.log(`B`)
+        console.log(`You have obtained B`)
         break
     case percentage>=50 && percentage<=59:
-        console.log(`C+`)
+        console.log(`You have obtained C+`)
         break
     case percentage>=40 && percentage<=49:
-        console.log(`C`)
+        console.log(`You have obtained C`)
         break
     default:
-        console.log(`Fail`)
+        console.log(`You are fail, Please Read Well`)
 }

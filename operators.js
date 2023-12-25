@@ -155,5 +155,5 @@ let x = -5
 console.log(+x)
 //iv. Unary - or Nagative Operator
 console.log(-x)
-//v. Types of Operator
+//v. typeof Operator
 console.log(typeof NaN)
