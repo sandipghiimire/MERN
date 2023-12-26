@@ -99,6 +99,58 @@
 // 2. Function Expression
 // 3. arrow Function(ES6+)
 
+// Syntax
+// VeriableType identifier = () => {}
+
+//KISS Principle -> Keep It Short & Simple
+
+// const greeting = () => console.log(`Hello World!`) //curly braces is not necessary if your are creating single statement
+// greeting();
+
+//Create a arrow function that returns sum of two number
+
+// const sum = (num1, num2) => {
+//     return num1 + num2    
+// }
+// console.log(sum(2,3));
+
+// const sum1 = (num1, num2) => num1 + num2
+// console.log(sum(2,3));
+
+// Create a arrow function that return an string that  says 
+
+// const vote = (age ) => age >= 18 ? `you are eligible to vote` : `You are not eligible to vote`
+// const vote = (age ) => {
+//     return age >= 18 ? `you are eligible to vote` : `You are not eligible to vote`
+    // if (age >= 18 ){
+    //     return ` you are eligible to vote`
+    // } else {
+    //     return `You are not eligible to vote`
+    // }
+// }
+// console.log(vote(15));
+
+// const cutPieces = fruit => fruit*4
+
+// const juiceMaker = (fruit1, fruit2) => {
+//     const fruit1a = 1
+// }
+
+const whoWillBeWinner = (team1, team2, team1Score1, team1Score2, team1Score3, team2Score1, team2Score2, team2Score3) => {
+let team1Avg = (team1Score1+team1Score2+team1Score3)/3
+let team2Avg = (team2Score1+team2Score2+team2Score3)/3
+
+if (team1Avg > team2Avg && team1Avg >= 100) {
+    console.log(`${team1} Wins`)
+} else if (team2Avg>team1Avg && team2Avg >= 100) {
+    console.log(`${team2} Wins`)
+}else if (team1Avg === team2Avg && team1Avg>=100 ){
+    console.log (`Draw`)
+}else{
+console.log (`No teams wins`)
+}
+}
+whoWillBeWinner(`Sandip`, `Kusal`, 208,100,101,102,203,104)
 // function whenwillYouBe16(age) {
 //     if (age>16){
 //         return `You were 16 ${age -16} years ago`
@@ -113,7 +165,13 @@
 // let output3 = whenwillYouBe16(13)
 
 //Coding Challenge 2,3
+// let a = prompt (`Height of Marks in m`)
+// let a1 = prompt (`weight of Marks in kg`)
+// let b = prompt (`Height of Sandip in m`)
+// let b1 = prompt (`weight of Sandip in kg`)
+// function codingChallenge2(bmi){
 
+// }
 
 
 //Office open or Close
