@@ -49,3 +49,30 @@ console.log(fruits.length)
 
 // Methods:- methods are functions defined in an object
 // Array methods:
+
+// .indexOf() -> it returns index of the element passed as an argument. If element doesn't exist it returns -1.
+console.log(fruits.indexOf('apple')) // 0
+console.log(fruits.indexOf('Dragonfruit')) // 0
+
+// .includes() -> it checks the existence of element in the array and returns boolen value.
+
+console.log(fruits.includes('banana'))
+console.log(fruits.includes('kera'))
+
+// ARRAYS THET MUTATES THE ORIGINAL ARRAY.
+
+//1) .push() -> it adds the element to the end of the array
+
+let checkReturnValueOfPush = fruits.push('Kera', 'Kiwi')
+console.log(fruits)
+
+console.log(checkReturnValueOfPush)
+
+//2) .pop() -> it removes an element from the end of the original array
+
+let popedElement = brands.pop() // removed element is returned
+
+console.log(brands)
+
+// 3) shift
+// 4) unshift
