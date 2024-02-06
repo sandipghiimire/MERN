@@ -2,12 +2,12 @@
 
 // example 
 // array of fruits:
-let fruits = ['apple', 'banana', 'cherry', 'Dragonfruit']
+// let fruits = ['apple', 'banana', 'cherry', 'Dragonfruit']
 // array of yesrs
-let yesrs = [1999,2000,2001,2002,2003]
+// let yesrs = [1999,2000,2001,2002,2003]
 
 // Mixed array:
-let mixedArray = ['hello', 19, true, undefined, null, Symbol(1), 200n, fruits, {a:1,b:2}]
+// let mixedArray = ['hello', 19, true, undefined, null, Symbol(1), 200n, fruits, {a:1,b:2}]
 
 //The data present inside an array are called "elements", and each element has its own "Index".
 // The index of array always starts from 0. Iy means 1st element is represented by 0 index, second element is represented by 1 index and so no.
@@ -20,24 +20,24 @@ let mixedArray = ['hello', 19, true, undefined, null, Symbol(1), 200n, fruits, {
 // Array Constructor
 // Since, array is an special object in javaScript, it can be created using its constructor
 // Example 
-let brands = new Array('Adudas', 'Nike', 'Gucci', 'Dior', 'Goldstar')
+// let brands = new Array('Adudas', 'Nike', 'Gucci', 'Dior', 'Goldstar')
 
-console.log(typeof(fruits))
+// console.log(typeof(fruits))
 
 // Accessing elements of an array using index
 
-console.log(fruits[3])
+// console.log(fruits[3])
 
 // adding elements in an array using index
-let cities = []
-cities[0] = 'Kathmandu'
-cities[1] = 'London'
-cities[2] = 'Sydney'
+// let cities = []
+// cities[0] = 'Kathmandu'
+// cities[1] = 'London'
+// cities[2] = 'Sydney'
 
-cities[6] = 'Hongkong'
+// cities[6] = 'Hongkong'
 
 // 3 array holes are formed
-console.log(cities)
+// console.log(cities)
 
 // Array is apecial in-boult object in javascript. SO it has many special methods as well.
 
@@ -45,34 +45,177 @@ console.log(cities)
 
 // .length -> it returns lengh of an array
 
-console.log(fruits.length)
+// console.log(fruits.length)
 
 // Methods:- methods are functions defined in an object
 // Array methods:
 
 // .indexOf() -> it returns index of the element passed as an argument. If element doesn't exist it returns -1.
-console.log(fruits.indexOf('apple')) // 0
-console.log(fruits.indexOf('Dragonfruit')) // 0
+// console.log(fruits.indexOf('apple')) // 0
+// console.log(fruits.indexOf('Dragonfruit')) // 0
 
 // .includes() -> it checks the existence of element in the array and returns boolen value.
 
-console.log(fruits.includes('banana'))
-console.log(fruits.includes('kera'))
+// console.log(fruits.includes('banana'))
+// console.log(fruits.includes('kera'))
 
 // ARRAYS THET MUTATES THE ORIGINAL ARRAY.
 
 //1) .push() -> it adds the element to the end of the array
 
-let checkReturnValueOfPush = fruits.push('Kera', 'Kiwi')
-console.log(fruits)
+// let checkReturnValueOfPush = fruits.push('Kera', 'Kiwi')
+// console.log(fruits)
 
-console.log(checkReturnValueOfPush)
+// console.log(checkReturnValueOfPush)
 
 //2) .pop() -> it removes an element from the end of the original array
 
-let popedElement = brands.pop() // removed element is returned
+// let popedElement = brands.pop() // removed element is returned
 
-console.log(brands)
+// console.log(brands)
 
 // 3) shift
-// 4) unshift
+// 4) unshift --> Is adds element from the start of the array.
+
+// const returnValue = fruits.unshift('Mango', 'Apple')
+// console.log(returnValue)
+// console.log(fruits)
+
+// 5. Splice -> This method is used to add, remove or replace elements from any position of the array, This methods takes three arguments.
+// 1st argument -> Starting index
+// 2nd argument -> count from the starting index
+// 3rd argument -> elements to be added / replaced
+
+// let fruits = ['kiwi','grapes','apple', 'banana', 'cherry', 'dragonfruits']
+
+// removing elements usnig splice
+// fruits.splice(2,2)
+
+// fruits.splice(1,0,"Grapes", "Kewi")
+// console.log(fruits)
+
+
+// 6. Reverse() -> it reverse thw array
+
+// fruits.reverse()
+// console.log(fruits)
+
+// 7. Sort() -> it shorts thw array in ascending order
+
+// let str = "G"
+// let str1 = "a"
+
+// console.log(str.charCodeAt(0))
+// console.log(str1.charCodeAt(0))
+
+// fruits.sort().reverse()
+// fruits.reverse()
+// console.log(fruits)
+
+// let number = [1324,345,675,90,45,1,50]
+// number.sort()
+// console.log(number)
+
+// While sorting this numbers array the output is not as we expected.
+
+// to solve this issue .sort() method takes a callback function (specially called compare function) as its argument.
+
+// let output = number.sort((a,b)=>b-a)
+// console.log(number)
+
+// negative -> a should be placed before b
+// positive -> a should be placed after b
+// zero -> no changes
+
+
+// let fruits = ['kiwi','grapes','apple', 'banana', 'cherry', 'dragonfruits']
+
+// console.log(fruits.sort((a,b)=>a.localeCompare(b)))
+
+// create a function that takes an array and returns it elements from last to first.
+
+// let food = ['sanip', 'ghimire', 'hello']
+
+// function foods(food){
+    //     console.log(food.sort((a,b)=>b-a))
+    // }
+    // foods(food);
+    
+    
+    // Create a function that takes an array and return last element of that array
+    
+    // let array = ['parijat', 'saypatri', 'siris', 'godawari']
+    
+    // function flowe(flow){
+//     length = length
+// }
+
+// let flow = array => {
+    // return array[array.length - 1]
+    // }
+    // flow(array)
+    // console.log(flow(array))
+    
+    // Method that does not changes the orginal array:
+    
+    // 1. .slice() -> This method is use to take a portion of an array. It doesn't mutates the orginal array rather it creates a shallow copy of it. It takes two arguments 
+    // 1st arg -> starting index
+    // 2nd arg -> end index (doesnot include the end index itself)
+    
+    // let fruits = ['kiwi','grapes','apple', 'banana', 'cherry', 'dragonfruits']
+    // console.log(fruits.slice(3,5));
+    // console.log(fruits)
+
+// 2. .concat() -> this method  is used to merge two arrays. It does not change the original array but gives us a new array.
+
+// let a = [1,2,3]
+// let b = [1,2,3]
+
+// console.log(a.concat(b))
+// console.log(a)
+
+// 3. spread operator (...) -> this operator is used to copy element of one array to the another array.
+
+// let toys = ['ball', 'car','doll']
+// let hobbies =  ['reading', 'watching movie', 'playing game']
+// let arrayMadeUsingSpreadOperator = [...hobbies, ...toys]
+
+// let arr = [0,1,[2,3,4]] 
+// let x = [...arr, ...toys, 100, 200]
+
+// console.log(x)
+
+// Create a function takes array of numbers and returns the sum of theat number.
+
+let number =  [1,2,3,4,5];
+let sum =0;
+function add (number){
+    for(i=0; i<number.length;  i++) {
+        sum = sum + number[i]
+    }
+   return sum;
+}
+
+console.log(add(number))
+
+// MAP -> This method is used to change the value of each element present in the array. This method doesn't mutates the orginal array. This methods returns a new array.
+// This method has a call back function with three arguments and that callback function has three parameters.
+
+// 1st -> element 
+// 2nd -> index of that element 
+// 3rd -> array itself
+
+
+// Syntax: array.map(()=>{})
+// Syntax: array.map(function(e,i,arr){})
+
+// Example
+let nums = [1,2,3,4,5,6]
+
+function  timesTwo(n){
+    for(i=0;i<nums.length;i++){
+       nums[i]=nums[i]*2;
+    }
+     return nums
+}
+console.log(timesTwo(nums))
