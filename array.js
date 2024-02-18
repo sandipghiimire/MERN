@@ -187,16 +187,16 @@
 
 // Create a function takes array of numbers and returns the sum of theat number.
 
-let number =  [1,2,3,4,5];
-let sum =0;
-function add (number){
-    for(i=0; i<number.length;  i++) {
-        sum = sum + number[i]
-    }
-   return sum;
-}
+// let number =  [1,2,3,4,5];
+// let sum =0;
+// function add (number){
+//     for(i=0; i<number.length;  i++) {
+//         sum = sum + number[i]
+//     }
+//    return sum;
+// }
 
-console.log(add(number))
+// console.log(add(number))
 
 // MAP -> This method is used to change the value of each element present in the array. This method doesn't mutates the orginal array. This methods returns a new array.
 // This method has a call back function with three arguments and that callback function has three parameters.
@@ -210,12 +210,168 @@ console.log(add(number))
 // Syntax: array.map(function(e,i,arr){})
 
 // Example
-let nums = [1,2,3,4,5,6]
+// let nums = [1,2,3,4,5,6]
+// let timesTwo = nums.map(e=>e*2)
+// console.log(timesTwo);
+// console.log(nums);
 
-function  timesTwo(n){
-    for(i=0;i<nums.length;i++){
-       nums[i]=nums[i]*2;
-    }
-     return nums
-}
-console.log(timesTwo(nums))
+
+// function  timesTwo(n){
+    
+    // for(i=0;i<nums.length;i++){
+    //    nums[i]=nums[i]*2;
+    // }
+    //  return nums
+// }
+// console.log(timesTwo(nums))
+
+// let nums = [1,2,3,4,5,6]
+// let timesTwo = nums.map((e,i)=>e*i)
+// console.log(timesTwo);
+
+// A company offered 15% increment in salary for its employees.
+// let Salary2080 = [17000,25000,35000,50000,23000,455000,99990,29290]
+// let salary2081 = Salary2080.map(e=>e*1.15)
+// console.log(salary2081)
+
+// let students = ['Sandip','Tara','Kushal','Yujan','Nisha', 'Rahul', 'Akash', 'Ankit', 'Shubham', 'Vedant', 'Priya']
+// let roll = students.sort().map((students,i)=>`Roll No.:${i+1} ${students}`)
+// console.log(roll)
+
+// KTM temperature (deg celcius) this week has been
+
+// let ktmTemperature = [17,10,3,5,23,10,12]
+// (x*9/5)+32
+// let  fahrenheit = ktmTemperature.map(ktmTemperature=>(ktmTemperature*9/5)+32)
+// console.log(fahrenheit)
+
+
+// Filter Method: This is an array method that is used to filter individual elements from an array. This method also returns a new array.
+
+// Syntax :
+// array.filter((element,index,arr)=>{return condition;});
+
+// In the callback function of this method a condition is initialized and based on the condition that elements are added (filtered in the new array returned by this method.)
+
+// If the condition is true element is added and if the condition is false the element won't be added.
+
+// example
+
+// let number = [10,4,38,4893,6,27,2,1,49,3,72];
+// let oddNumber = number.filter((e) => e%2!==0)
+// let evenIndex = number.filter((e,i)=> i%2===0)
+// console.log(oddNumber)
+// console.log(evenIndex)
+
+
+// let salary = [17000, 18000, 20000, 25000, 30000, 45000, 55000, 50000, 90000, 93000, 95000, 14000, 13500, 12000, 10000]
+
+// YOur task
+// The government has defined the minimum salary as 17500, find out how many people from the survey are getting belor average salary.
+
+// Example output : out of 10 people 3 are getting below average salary.
+
+// let minSalary = salary.filter((e) => e<17500)
+// console.log(`Out of ${salary.length} people ${minSalary.length} are getting below average salary`);
+
+// Salary x id Y% less than minimun salary usinf filter
+
+// let lessSalary = minSalary.map((e) => `Salary ${e} is ${100-(e/175)}% less than minimum salary`);
+// console.log(`Salary ${minSalary} is ${lessSalary}% less than minimum salary`)
+// console.log(lessSalary)
+
+// let lessSalary = minSalary.map(e => `${e} is ${(100-(e/175)).toFixed(2)}% less than minimum salary`);
+// console.log(lessSalary)
+
+
+// Reduce Method -> Reduce is the method of that can returns any type of value. (Either primitive or non-primitive). It will reduce all element in an array into a single value.
+// Unlike map and filter this method has two arguments.
+// 1st -> callback function
+// 2nd -> Initial value of accumulator.
+
+// The callback function in this method has four parameters
+// 1st -> accumulator
+// 2nd -> current element
+// 3rd -> index
+// 4th -> array
+
+// Exmaple -> summing all elements in the array.
+
+// let number = [10,4,100,123];
+// From Reduce method
+// let sum = number.reduce((e,sum1) => e+sum1)
+// console.log(sum)
+// From for loop
+// let sum2=0;
+// for(i=0;i<number.length;i++){
+    //     sum2=sum2+number[i];
+    // }
+    
+    // console.log(sum2)
+    
+// let salary = [17000, 18000, 20000, 25000, 30000, 45000, 55000, 50000, 90000, 93000, 95000, 14000, 13500, 12000, 10000]
+    // let avgSalary = salary.reduce((e,acc,arry)=>acc=e+acc)/salary.length
+    // console.log(avgSalary)
+
+// let minSalary = salary.reduce((acc,e)=>{ 
+//     if(e<17500){
+//         let percentage = 100-(e/175)
+//         acc.push(`Salary ${e} is ${100-(percentage.toFixed(2))}% less than minimum salary`)
+// }
+// return acc;
+// },[])
+// let lessSalary = salary.reduce((e) => `Salary ${e} is ${100-(e/175)}% less than minimum salary`,Array);
+// console.log(minSalary)
+// console.log(lessSalary)
+
+// Create a function that takes two parameter, word and letter respectively. The function should return the count letter present in the word.
+
+// example output = letterCount ('apple','p') -> 'There are 2p's in the word apple
+
+// Hint : Convert word into array
+
+// By using split method.
+// Syntax
+// string.split(separator)
+
+// example
+// let str = "Hello World"
+// let arrStr = str.split("")
+// console.log(arrStr)
+
+// 3.
+// Array.from(str)
+// console.log(Array.from(str))
+
+
+// let word = "Sandip"
+// let arrLetter = [...word]
+// console.log(arrLetter)
+
+// const letterCount = (word,letter) => {
+//     let arrLetter = [...word]
+//     let Numletter = arrLetter.reduce ((acc,e)=>{
+//         if(e.toLowerCase()===letter.toLowerCase()){
+//             acc++;
+//         }
+//         return acc;
+//     },0)
+
+    // return Numletter <= 1 ? `There is ${Numletter} ${letter} in the word ${word}` : `There are ${Numletter} ${letter}'s in the word ${word}` 
+//     return `There ${Numletter===1 ? 'is':'are'} ${Numletter} ${letter}${Numletter!==1? `'s`:''} in the word ${word}`
+// }
+
+// console.log(letterCount('ApPple','p'))
+
+
+// Array Destructuring:
+const arr = []
+// It is a way to sequentially assign values from arrays to variables.
+
+// Example
+
+let [a,b,c] = [1,2,3]
+console.log(b)
+
+// Reset Parameter
+let [x,y,z, ...other] = [9,8,7,6,5,4,3,2,1]
