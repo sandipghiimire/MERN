@@ -365,13 +365,14 @@
 
 
 // Array Destructuring:
-const arr = []
+// const arr = []
 // It is a way to sequentially assign values from arrays to variables.
 
 // Example
 
-let [a,b,c] = [1,2,3]
-console.log(b)
+// let [a,b,c] = [1,2,3]
+// console.log(b)
 
 // Reset Parameter
-let [x,y,z, ...other] = [9,8,7,6,5,4,3,2,1]
+// let [x,y,z, ...other] = [9,8,7,6,5,4,3,2,1]
+
