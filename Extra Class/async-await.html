@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async-Await</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        // async/await is a morden javascript feature which makes asynchronous code simpler to write. Working with promises and performing the task asynchronously is easier by using it. Aysnc is used to create an asynchronous function and await is used to wait till the asynchronous task is completed.
+
+        let news = [
+            {title:"First Title", content:"First News"},
+            {title:"Second Title", content:"Second News"},
+            {title:"Third Title", content:"Third News"}
+        ]
+
+        const showNews = () => {
+            setTimeout(() =>{
+                let result = "";
+                news.forEach(post => {
+                    result += `<li>${post.title}, ${post.content}</li>`
+                    console.log(result);
+                    document.querySelector('div').innerHTML = result;
+                })
+
+            },3000)
+        }
+        showNews();
+
+        const addNews = (newNews) => {
+            return new Promise ((resolve,reject)=>{
+                setTimeout (() => {
+                    news.push(newNews)
+                    let error = true;
+                    if(!error){
+                        resolve()
+                    } else {
+                        reject({message:"Something Went Wrong!"})
+                    }
+                },5000)
+            },)
+        }
+
+        // const asyncFunc = async () => {
+        //     await addNews({title:"Fourth Title", content:"This is fourth content"})
+        //     showNews()
+        // };
+        const asyncFunc = async () => {
+            try { 
+            await addNews({title:"Fourth Title", content:"This is fourth content"})
+            showNews()
+        } catch (e) {
+            alert(e.message)
+        }
+            
+        };
+        asyncFunc();
+    </script>
+</body>
+</html>

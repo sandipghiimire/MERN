@@ -85,3 +85,8 @@ input.type = "password"
 const func1 = () => console.log("You are clicked")
 // 2. .addEventListener() method
 heading2.addEventListener('click', ()=>console.log("You've clicked me"))
+para.addEventListener('click', ()=> {
+    const text = para.textContent
+    alert(text)
+})
+ 

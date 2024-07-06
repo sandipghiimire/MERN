@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        // Promise :- It is an inbuild javascript object which can represent eventual completion or faliure of any asyncronous operation. To overcome the drawbacks of using callback function for asyncronous task promises are used. Promises makes asyncronous code much more readable. Error handeling is easier in promises.
+        // There are three major states in promises:-
+        // 1. Pending
+        // 2. Fulfilled/Resolved
+        // 3. Rejected
+
+        let news = [
+            {title:"First Title", content:"First News"},
+            {title:"Second Title", content:"Second News"},
+            {title:"Third Title", content:"Third News"}
+        ]
+
+        const showNews = () => {
+            setTimeout(() =>{
+                let result = "";
+                news.forEach(post => {
+                    result += `<li>${post.title}, ${post.content}</li>`
+                    console.log(result);
+                    document.querySelector('div').innerHTML = result;
+                })
+
+            },3000)
+        }
+        showNews();
+        // const addNews = (newNews) => {
+        //     setTimeout(() =>{
+        //         news.push(newNews)
+        //     },2000)
+        // }
+
+        const addNews = (newNews) => {
+            return new Promise ((resolve,reject)=>{
+                setTimeout (() => {
+                    news.push(newNews)
+                    let error = true;
+                    if(!error){
+                        resolve()
+                    } else {
+                        reject({message:"Something Went Wrong!"})
+                    }
+                },5000)
+            },)
+        }
+
+        addNews({title:"Fourth title", content:"Fourth Content"}).then(showNews).catch(e=>alert(e.message));
+
+        // creating a promises is not done most of the time. Developer tens to work with pre existance promises. They either use libraries or methods that returns a promises. For eg: fetch method (fetch functon), exios (library). 
+    </script>
+</body>
+
+</html>
