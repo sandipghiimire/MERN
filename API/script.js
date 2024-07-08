@@ -1,35 +1,17 @@
-// document.getElementById('searchBtn').addEventListener('click', searchImages);
+document.addEventListener("DOMContentLoaded", function() {
+    const ACCESS_KEY = 'mGq-ilFFXqWUoXfTTv3PwNgUkVLMp8iBniTbRmmBzr4'; // Replace with your Unsplash API Access Key
+    const generateButton = document.getElementById('generate-button');
+    const imageContainer = document.getElementById('image-container');
 
-// function searchImages() {
-//     const searchTerm = document.getElementById('searchInput').value;
-//     const apiKey = 'YOUR_RAPIDAPI_KEY'; // Replace with your RapidAPI key
-//     const apiHost = 'real-time-image-search.p.rapidapi.com';
-//     const apiUrl = `https://${apiHost}/search?q=${searchTerm}`;
-
-//     fetch(apiUrl, {
-//         method: 'GET',
-//         headers: {
-//             'X-RapidAPI-Key': apiKey,
-//             'X-RapidAPI-Host': apiHost
-//         }
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         const resultsDiv = document.getElementById('results');
-//         resultsDiv.innerHTML = '';
-//         data.value.forEach(image => {
-//             const imgElement = document.createElement('img');
-//             imgElement.src = image.url;
-//             resultsDiv.appendChild(imgElement);
-//         });
-//     })
-//     .catch(error => {
-//         console.error('Error fetching the image data:', error);
-//         document.getElementById('results').innerHTML = `Error fetching the image data.`;
-//     });
-// }
-
-const accessKey = "mGq-ilFFXqWUoXfTTv3PwNgUkVLMp8iBniTbRmmBzr4";
-const formEl = document.querySelector("form");
-const inputE = document.getElementById("search-input");
-const searchResults = document.querySelector("search-result")
+    generateButton.addEventListener('click', function() {
+        fetch(`https://api.unsplash.com/photos/random?client_id=${ACCESS_KEY}`)
+            .then(response => response.json())
+            .then(data => {
+                const imageUrl = data.urls.regular;
+                imageContainer.innerHTML = `<img src="${imageUrl}" alt="Random Image">`;
+            })
+            .catch(error => {
+                console.error('Error fetching the image:', error);
+            });
+    });
+});
