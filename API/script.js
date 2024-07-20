@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => response.json())
             .then(data => {
                 displayImages(data.results);
+                console.log(data.results);
             })
             .catch(error => {
                 console.error('Error fetching the images:', error);
