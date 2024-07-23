@@ -1,0 +1,62 @@
+[
+    {
+        "id":1,
+        "student_name" : "Sandip Ghimire",
+        "student_address" : "Anamnagar",
+        "student_phone" : "9869292044",
+        "student_bod" : "2222-12-22",
+        "student_image_url" : "/images/mega.png",
+        "student_image2_url" : "/images/sandip.jpg",
+        "student_id":1200
+    },
+    {
+        "id":1,
+        "student_name" : "Sandip Ghimire",
+        "student_address" : "Anamnagar",
+        "student_phone" : "9869292044",
+        "student_bod" : "2222-12-22",
+        "student_image_url" : "/images/mega.png",
+        "student_image2_url" : "/images/sandip.jpg",
+        "student_id":1200
+    },
+    {
+        "id":1,
+        "student_name" : "Sandip Ghimire",
+        "student_address" : "Anamnagar",
+        "student_phone" : "9869292044",
+        "student_bod" : "2222-12-22",
+        "student_image_url" : "/images/mega.png",
+        "student_image2_url" : "/images/sandip.jpg",
+        "student_id":1200
+    },
+    {
+        "id":1,
+        "student_name" : "Sandip Ghimire",
+        "student_address" : "Anamnagar",
+        "student_phone" : "9869292044",
+        "student_bod" : "2222-12-22",
+        "student_image_url" : "/images/mega.png",
+        "student_image2_url" : "/images/sandip.jpg",
+        "student_id":1200
+    },
+    {
+        "id":1,
+        "student_name" : "Sandip Ghimire",
+        "student_address" : "Anamnagar",
+        "student_phone" : "9869292044",
+        "student_bod" : "2222-12-22",
+        "student_image_url" : "/images/mega.png",
+        "student_image2_url" : "/images/sandip.jpg",
+        "student_id":1200
+    },
+    {
+        "id":1,
+        "student_name" : "Sandip Ghimire",
+        "student_address" : "Anamnagar",
+        "student_phone" : "9869292044",
+        "student_bod" : "2222-12-22",
+        "student_image_url" : "/images/mega.png",
+        "student_image2_url" : "/images/sandip.jpg",
+        "student_id":1200
+    }
+]

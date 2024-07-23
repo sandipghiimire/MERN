@@ -16,5 +16,23 @@
         "product_title" : "Fancy Watch",
         "product_image_url" : "/images/c.jpeg",
         "product_paice":1200
+    },
+    {
+        "id":3,
+        "product_title" : "Fancy Watch",
+        "product_image_url" : "/images/c.jpeg",
+        "product_paice":1200
+    },
+    {
+        "id":3,
+        "product_title" : "Fancy Watch",
+        "product_image_url" : "/images/c.jpeg",
+        "product_paice":1200
+    },
+    {
+        "id":3,
+        "product_title" : "Fancy Watch",
+        "product_image_url" : "/images/c.jpeg",
+        "product_paice":1200
     }
 ]

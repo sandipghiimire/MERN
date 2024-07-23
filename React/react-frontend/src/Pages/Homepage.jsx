@@ -9,8 +9,6 @@ const Homepage = () => {
           <Drayer/>
             <Counter/>
           <Herosection/>
-            
-
         </div>
     )
 }
