@@ -1,7 +1,11 @@
-const hero = () => {
+import DispalyProducts from "../Product/DispalyProducts"
+
+const Herosection = () => {
     return (
         <>
-        This is the hero sec
+        <DispalyProducts/>
         </>
     )
 }
+
+export default Herosection

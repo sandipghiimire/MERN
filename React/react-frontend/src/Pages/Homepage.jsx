@@ -1,10 +1,14 @@
-import Navbar from "../components/Navbar"
+import Counter from "../components/Counter"
+import Drayer from "../components/Drayer"
+import Herosection from "../components/Herosection"
+
 
 const Homepage = () => {
     return (
         <div >
-            
-            <Navbar/>
+          <Drayer/>
+            <Counter/>
+          <Herosection/>
             
 
         </div>
