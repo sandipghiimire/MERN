@@ -4,6 +4,7 @@ import DispalyProducts from "../Product/DispalyProducts"
 const Herosection = () => {
     return (
         <>
+        
         <DispalyIdCard/>
         <DispalyProducts/>
         </>

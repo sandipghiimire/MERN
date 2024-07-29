@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ProductCard = ({ image, title, price }) => {
+const ProductCard = ({ image, title, price, id }) => {
   return (
     <div className="col">
       <div class="card">
@@ -10,7 +10,7 @@ const ProductCard = ({ image, title, price }) => {
             <h5 class="card-title">{title}</h5>
             <h5 class="card-title">{price}</h5>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <Link to={`/product-details/${id}`}  class="btn btn-primary">View Details</Link>
           </div>
       </div>
     </div>
