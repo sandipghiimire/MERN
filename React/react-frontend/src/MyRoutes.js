@@ -15,7 +15,7 @@ export const MyRoutes = () => {
           <Route path='/' element={<Homepage />} />
           <Route path='/contact-us' element={<Contact />} />
           <Route path='/about-us' element={<About />} />
-          <Route path='/product-details/:productID' element={<ProductDetails/>}/>
+          <Route path='/product-details/:productId' element={<ProductDetails/>}/>
         </Route>
       </Routes>
     </Router>

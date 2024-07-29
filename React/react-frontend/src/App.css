@@ -44,3 +44,40 @@
   border: solid;
 }
 
+.card p{
+  text-align: left;
+}
+
+.card-title{
+  margin-top: 25px;
+}
+
+
+.product-details-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-info {
+  max-width: 600px;
+}
+
+.product-info h1 {
+  margin-bottom: 20px;
+}
+
+.product-info p {
+  margin-bottom: 10px;
+}
+
+.product-info strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}

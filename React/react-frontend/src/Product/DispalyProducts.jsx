@@ -9,9 +9,9 @@ const DispalyProducts = () => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const fetchProducts = async() => {
+    const fetchProducts = async () => {
       try {
-        const res =await axios.get("https://dummyjson.com/products")
+        const res = await axios.get("https://dummyjson.com/products")
         setProducts(res.data.products)
         setIsLoading(false)
       } catch (err) {
@@ -36,10 +36,11 @@ const DispalyProducts = () => {
       <div className="row row-cols-1 row-cols-md-4 g-4">
         {
           products.map((product, index) => (
-            <ProductCard image={product.thumbnail}
-              price={product.price*133.5}
-              title={product.title} 
-              id={product.id}/>
+            <ProductCard title={product.title}
+              image={product.thumbnail}
+              price={product.price * 133.5}
+              description={product.description}
+              id={product.id} />
           ))
         }
       </div>
