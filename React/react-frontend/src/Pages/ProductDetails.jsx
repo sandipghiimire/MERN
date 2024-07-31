@@ -1,72 +1,115 @@
-// import React from 'react'
-// import { Link, useParams } from 'react-router-dom'
-
-// const ProductDetails = ({id}) => {
-//     const params = useParams()
-//   return (
-//     <>
-//         This is product details page
-//         <p>Product Id : {params.productID}</p>
-
-//     </>
-//   )
-// }
-
-// export default ProductDetails
-
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import ProductCard from '../ui/ProductCard';
 
 const ProductDetails = () => {
-  const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [productsByCategory, setProductsByCategory] = useState([]);
   const [error, setError] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const params = useParams();
+  const id = params.productId;
+  const navigate = useNavigate(); // For navigation
 
   useEffect(() => {
-    const fetchProduct = async () => {
+    const fetchProductAndCategory = async () => {
       try {
-        const response = await axios.get(`https://dummyjson.com/products/${productId}`);
-        setProduct(response.data);
-        setIsLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setIsLoading(false);
+        const productResponse = await axios.get(`https://dummyjson.com/products/${id}`);
+        const product = productResponse.data;
+        setProduct(product);
+
+        if (product?.category) {
+          const categoryResponse = await axios.get(`https://dummyjson.com/products/category/${product.category}`);
+          setProductsByCategory(categoryResponse.data.products);
+          console.log("Products by Category", categoryResponse.data);
+        }
+      } catch (error) {
+        setError("Failed to fetch product details. Please try again later.");
+        console.error("Error fetching product or category:", error);
       }
     };
 
-    fetchProduct();
-  }, [productId]);
+    fetchProductAndCategory();
+  }, [id]);
 
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
+  const handleQuantityChange = (event) => {
+    const value = Math.max(1, parseInt(event.target.value, 10)); // Ensure quantity is at least 1
+    setQuantity(value);
+  };
 
-  if (error) {
-    return <h2>Error: {error}</h2>;
-  }
+  const handleAddToCart = () => {
+    if (!product) return;
+
+    // Retrieve existing cart data
+    const existingCartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    // Check if the product is already in the cart
+    const existingProductIndex = existingCartData.findIndex(item => item.id === product.id);
+
+    if (existingProductIndex > -1) {
+      // Update quantity if product is already in the cart
+      existingCartData[existingProductIndex].quantity += quantity;
+    } else {
+      // Add new product to the cart
+      existingCartData.push({ ...product, quantity });
+    }
+
+    // Save updated cart data to localStorage
+    localStorage.setItem("cartData", JSON.stringify(existingCartData));
+    navigate('/cart'); // Redirect to cart page after adding
+  };
 
   return (
-    <div className="product-details-container">
-      {product && (
-        <>
-          <div className="product-image">
-            <img src={product.thumbnail} alt={product.title} />
-            <h1><button type="button" class="btn btn-secondary">Rs, {product.price*133.5}</button></h1>
+    <>
+      {error ? (
+        <p>{error}</p>
+      ) : product ? (
+        <div className="container my-2">
+          <div className="row">
+            <div className="col-md-6">
+              <img src={product.images[0]} alt={`Image of ${product.title}`} className="img-fluid" width={500} />
+            </div>
+            <div className="col-md-6">
+              <h1 className="text-muted">{product.title}</h1>
+              <h2>Rs. {product.price * 133.5}</h2>
+              <p>{product.description}</p>
+              <p>Category: {product.category}</p>
+              <div className="mb-3">
+                <label htmlFor="quantity" className="form-label">Quantity</label>
+                <input
+                  type="number"
+                  id="quantity"
+                  value={quantity}
+                  onChange={handleQuantityChange}
+                  min="1"
+                  className="form-control"
+                />
+              </div>
+              <div className="">
+                <button className="btn btn-warning" onClick={handleAddToCart}>Add to Cart</button>
+              </div>
+            </div>
           </div>
-          <div className="product-info">
-            <h1>{product.title}</h1>
-            <p>Product Id: {product.id}</p>
-            <p>Description: {product.description}</p>
-            <p>Rating: {product.rating}</p>
-            <p>Product Tag: {product.tags ? product.tags.join(', ') : 'N/A'}</p>
-            <p>Discount Percentage: {product.discountPercentage}%</p>
-            <p>Category: {product.category}</p>
-          </div>
-        </>
+        </div>
+      ) : (
+        <p>There is not a valid product</p>
       )}
-    </div>
+      <hr />
+      <div className="container my-4">
+        <h1 className="text-center">More For You</h1>
+        <div className="row row-cols-1 row-cols-md-4 g-4">
+          {productsByCategory.filter(prod => prod.id !== product.id).map((product) => (
+            <ProductCard
+              key={product.id}
+              image={product.thumbnail}
+              title={product.title}
+              price={product.price * 133.5}
+              id={product.id}
+            />
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 

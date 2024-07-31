@@ -5,6 +5,7 @@ import Contact from './Pages/Contact'
 import About from './Pages/About'
 import LayoutMain from './Layouts/LayoutMain'
 import ProductDetails from './Pages/ProductDetails'
+import Cart from './Pages/Cart'
 
 
 export const MyRoutes = () => {
@@ -15,6 +16,7 @@ export const MyRoutes = () => {
           <Route path='/' element={<Homepage />} />
           <Route path='/contact-us' element={<Contact />} />
           <Route path='/about-us' element={<About />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path='/product-details/:productId' element={<ProductDetails/>}/>
         </Route>
       </Routes>
