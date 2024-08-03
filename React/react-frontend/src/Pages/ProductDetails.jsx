@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const params = useParams();
   const id = params.productId;
-  const navigate = useNavigate(); // For navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProductAndCategory = async () => {
@@ -34,29 +34,22 @@ const ProductDetails = () => {
   }, [id]);
 
   const handleQuantityChange = (event) => {
-    const value = Math.max(1, parseInt(event.target.value, 10)); // Ensure quantity is at least 1
+    const value = Math.max(1, parseInt(event.target.value, 10));
     setQuantity(value);
   };
 
   const handleAddToCart = () => {
     if (!product) return;
-
-    // Retrieve existing cart data
     const existingCartData = JSON.parse(localStorage.getItem("cartData")) || [];
-    // Check if the product is already in the cart
     const existingProductIndex = existingCartData.findIndex(item => item.id === product.id);
 
     if (existingProductIndex > -1) {
-      // Update quantity if product is already in the cart
       existingCartData[existingProductIndex].quantity += quantity;
     } else {
-      // Add new product to the cart
       existingCartData.push({ ...product, quantity });
     }
-
-    // Save updated cart data to localStorage
     localStorage.setItem("cartData", JSON.stringify(existingCartData));
-    navigate('/cart'); // Redirect to cart page after adding
+    navigate('/cart');
   };
 
   return (
