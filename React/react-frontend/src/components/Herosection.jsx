@@ -1,3 +1,4 @@
+import HookEffect from "../Effect/HookEffect"
 import DispalyIdCard from "../Product/DispalyIdCard"
 import DispalyProducts from "../Product/DispalyProducts"
 
@@ -7,6 +8,7 @@ const Herosection = () => {
         
         <DispalyIdCard/>
         <DispalyProducts/>
+        <HookEffect/>
         </>
     )
 }

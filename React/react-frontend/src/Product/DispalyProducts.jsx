@@ -7,7 +7,7 @@ const DispalyProducts = () => {
   const [products, setProducts] = useState([])
   const [isLoding, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
-
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {

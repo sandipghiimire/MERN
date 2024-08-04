@@ -2,6 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ProductCard from '../ui/ProductCard';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
@@ -39,21 +42,35 @@ const ProductDetails = () => {
   };
 
   const handleAddToCart = () => {
-    if (!product) return;
-    const existingCartData = JSON.parse(localStorage.getItem("cartData")) || [];
-    const existingProductIndex = existingCartData.findIndex(item => item.id === product.id);
+    const cart = JSON.parse(localStorage.getItem("cartItem")) ?? [];
+    const found = cart.find((item) => item.id===product.id)
 
-    if (existingProductIndex > -1) {
-      existingCartData[existingProductIndex].quantity += quantity;
-    } else {
-      existingCartData.push({ ...product, quantity });
-    }
-    localStorage.setItem("cartData", JSON.stringify(existingCartData));
-    navigate('/cart');
+    if(found) {
+      found.quantity+=1
+      localStorage.setItem("cartItem", JSON.stringify(cart));
+      toast.success(`${product.title} x ${found.quantity} is added to the cart`)
+      // cart[found].quantity += quantity;  
+    }else{
+        cart.push({...product,quantity:1});
+        localStorage.setItem("cartItem", JSON.stringify(cart));
+        toast.success(`${product.title} x 1 is added to the cart`)
+      }
+    //   if (!product) return;
+    //   const existingCartData = JSON.parse(localStorage.getItem("cartItem")) || [];
+    //   const existingProductIndex = existingCartData.findIndex(item => item.id === product.id);
+      
+    //   if (existingProductIndex > -1) {
+    //   existingCartData[existingProductIndex].quantity += quantity;
+    // } else {
+    //   existingCartData.push({ ...product, quantity });
+    // }
+    // localStorage.setItem("cartItem", JSON.stringify(existingCartData));
+    // navigate('/cart');
   };
 
   return (
     <>
+    <ToastContainer />
       {error ? (
         <p>{error}</p>
       ) : product ? (

@@ -5,15 +5,14 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    // Retrieve cart data from localStorage
-    const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+    const cartData = JSON.parse(localStorage.getItem("cartItem")) || [];
     setCartItems(cartData);
   }, []);
 
   const handleRemoveItem = (id) => {
     const updatedCartItems = cartItems.filter(item => item.id !== id);
     setCartItems(updatedCartItems);
-    localStorage.setItem("cartData", JSON.stringify(updatedCartItems));
+    localStorage.setItem("cartItem", JSON.stringify(updatedCartItems));
   };
 
   return (

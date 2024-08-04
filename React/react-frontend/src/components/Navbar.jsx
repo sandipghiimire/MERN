@@ -5,7 +5,6 @@ const Navbar = () => {
   const [cartItemCount, setCartItemCount] = useState(0);
 
   useEffect(() => {
-    // Retrieve cart data from localStorage and count the number of items
     const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
     const itemCount = cartData.reduce((acc, item) => acc + item.quantity, 0);
     setCartItemCount(itemCount);
@@ -29,6 +28,9 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/contact-us">Contact</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact-us">Contact</Link>
+            </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown link
@@ -43,8 +45,8 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
-                <i className="bi bi-cart"></i> {/* Bootstrap Icons for cart icon */}
-                <span className="badge bg-primary ms-2">{cartItemCount}</span>
+                <i className="bi bi-cart"></i> 
+                {/* <span className="badge bg-primary ms-2">{cartItemCount}</span> */}
               </Link>
             </li>
           </ul>
