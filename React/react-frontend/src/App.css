@@ -1,4 +1,8 @@
-.App {
+.container-fluid{
+  text-align: center;
+}
+
+.text-muted{
   text-align: center;
 }
 

@@ -6,7 +6,7 @@ const Herosection = () => {
     return (
         <>
         
-        <DispalyIdCard/>
+        {/* <DispalyIdCard/> */}
         <DispalyProducts/>
         <HookEffect/>
         </>

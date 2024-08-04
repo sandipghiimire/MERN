@@ -38,7 +38,7 @@ const DispalyProducts = () => {
           products.map((product, index) => (
             <ProductCard title={product.title}
               image={product.thumbnail}
-              price={product.price * 133.5}
+              price={(product.price * 133.5).toFixed(2)}
               description={product.description}
               id={product.id} />
           ))

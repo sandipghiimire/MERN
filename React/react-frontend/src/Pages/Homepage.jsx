@@ -6,8 +6,8 @@ import Herosection from "../components/Herosection"
 const Homepage = () => {
     return (
         <div >
-          <Drayer/>
-            <Counter/>
+          {/* <Drayer/> */}
+            {/* <Counter/> */}
           <Herosection/>
         </div>
     )

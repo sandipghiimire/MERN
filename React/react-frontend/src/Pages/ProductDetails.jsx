@@ -55,16 +55,7 @@ const ProductDetails = () => {
         localStorage.setItem("cartItem", JSON.stringify(cart));
         toast.success(`${product.title} x 1 is added to the cart`)
       }
-    //   if (!product) return;
-    //   const existingCartData = JSON.parse(localStorage.getItem("cartItem")) || [];
-    //   const existingProductIndex = existingCartData.findIndex(item => item.id === product.id);
-      
-    //   if (existingProductIndex > -1) {
-    //   existingCartData[existingProductIndex].quantity += quantity;
-    // } else {
-    //   existingCartData.push({ ...product, quantity });
-    // }
-    // localStorage.setItem("cartItem", JSON.stringify(existingCartData));
+    
     // navigate('/cart');
   };
 
@@ -81,20 +72,9 @@ const ProductDetails = () => {
             </div>
             <div className="col-md-6">
               <h1 className="text-muted">{product.title}</h1>
-              <h2>Rs. {product.price * 133.5}</h2>
+              <h2>Rs. {(product.price * 133.5).toFixed(2)}</h2>
               <p>{product.description}</p>
               <p>Category: {product.category}</p>
-              <div className="mb-3">
-                <label htmlFor="quantity" className="form-label">Quantity</label>
-                <input
-                  type="number"
-                  id="quantity"
-                  value={quantity}
-                  onChange={handleQuantityChange}
-                  min="1"
-                  className="form-control"
-                />
-              </div>
               <div className="">
                 <button className="btn btn-warning" onClick={handleAddToCart}>Add to Cart</button>
               </div>
@@ -105,15 +85,15 @@ const ProductDetails = () => {
         <p>There is not a valid product</p>
       )}
       <hr />
-      <div className="container my-4">
+      <div className="container my-4 text-center">
         <h1 className="text-center">More For You</h1>
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {productsByCategory.filter(prod => prod.id !== product.id).map((product) => (
-            <ProductCard
+            <ProductCard 
               key={product.id}
               image={product.thumbnail}
               title={product.title}
-              price={product.price * 133.5}
+              price={(product.price * 133.5).toFixed(2)}
               id={product.id}
             />
           ))}
