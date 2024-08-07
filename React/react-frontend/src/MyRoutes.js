@@ -7,6 +7,9 @@ import LayoutMain from './Layouts/LayoutMain'
 import ProductDetails from './Pages/ProductDetails'
 import Cart from './Pages/Cart'
 import RegistrationForm from './Pages/RegistrationForm'
+import ComponentD from './Context/ComponentD'
+import CompomentA from './Context/CompomentA'
+import Show from './Context/Show'
 
 
 export const MyRoutes = () => {
@@ -20,6 +23,8 @@ export const MyRoutes = () => {
           <Route path='/register' element={<RegistrationForm />} />
           <Route path="/cart" element={<Cart />} />
           <Route path='/product-details/:productId' element={<ProductDetails/>}/>
+
+          <Route path="/show" element={<Show/>} />
         </Route>
       </Routes>
     </Router>
